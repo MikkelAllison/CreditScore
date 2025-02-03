@@ -17,25 +17,26 @@
 
 ## How It Works
 
-1. On launch, the `ContentView` creates and observes a `CreditScoreViewModel`.
-2. The app calls `fetchCreditScore()` from the `ViewModel`, which uses `NetworkService` to fetch the credit data from the provided endpoint.
+1. On launch, the `CreditScoreRootView` creates and observes a `CreditScoreViewModel`.
+2. The app calls `fetchCreditScore()` from the `ViewModel`, which uses `CreditScoreNetworkService` to fetch the credit data from the provided endpoint.
 3. The fetched score and maximum possible score are passed into `DonutView`, which draws a circular ring showing the completion percentage.
 4. If a network error occurs, the user sees an error icon and a “Try Again” button.
 
 ## Architecture
 
-The project follows a **MVVM** pattern:
+The application follows the MVVM (Model-View-ViewModel) architecture pattern and SOLID principles:
 
 - **Models** (`CreditScoreModel.swift`) define the data structures returned by the API.
 - **ViewModels** (`CreditScoreViewModel.swift`) manage the app state, handling data fetching and error handling.
-- **Views** (`ContentView.swift` and `DonutView.swift`) display the current state and user interface.
-- **Services** (`NetworkService.swift`) handle all network requests and data parsing.
+- **Views** (`CreditScoreRoottView.swift` and `CreditScoreRingView.swift`) display the current state and user interface.
+- **Services** (`CreditScoreNetworkService.swift`) handle all network requests and data parsing.
+- **Tests** (`CreditScoreTests.swift`) performs unit tests on crucial app functionality.
 
 ## Notable Features
 
 - **Async/Await** for streamlined network calls.
 - **Dependency Injection** via `NetworkServiceProtocol` so we can swap in a `MockNetworkService` in tests.
-- **SwiftUI Previews** in `DonutView` to quickly visualize multiple states of the donut ring.
+- **SwiftUI Previews** in `CreditScoreRingView` to quickly visualize multiple states of the donut ring.
 - **Unit Tests** (`CreditScoreTests.swift`) that validate different scoring conditions and error scenarios.
 
 ## Testing
@@ -54,11 +55,3 @@ Tests included:
 - **More Detailed Error Handling**: Differentiate user‐facing messages for different network failures.
 - **Additional UI States**: Show partial data or placeholders if partial data is available.
 - **Refine Testing**: Use more advanced strategies (e.g., UI Testing with SwiftUI).
-
-## Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss potential modifications.
-
-## License
-
-*(Choose your preferred license—MIT, Apache, etc. Or omit if not applicable.)*
