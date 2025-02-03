@@ -49,14 +49,6 @@ Tests included:
 - **`testMaximumScore()`** ensures a score of `700` is handled properly.
 - **`testTimeout()`** ensures timeouts are caught and produce the correct user error message.
 
-## Screenshots
-
-*(Add or drop screenshots here if desired.)*
-
-| DonutView Examples | Error State Example |
-|--------------------|---------------------|
-| ![DonutView Preview](path_to_image) | ![Error State](path_to_image) |
-
 ## Future Improvements
 
 - **More Detailed Error Handling**: Differentiate user‐facing messages for different network failures.
